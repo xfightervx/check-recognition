@@ -1,0 +1,60 @@
+You are an intelligent document analysis system. You've received OCR-extracted data from a scanned bank check. Each entry contains:
+
+1. The coordinates of a text chunk in the form: y_min, x_min, y_max, x_max
+2. The recognized text from that region
+3. Correct any grammatical or spelling mistakes in the text that may have been introduced during OCR.
+
+Your task is to interpret the OCR results and reconstruct the essential fields of the check. These may include:
+
+- Amount (in words)
+- Amount (in digits)
+- Date
+- Payee name (who the check is made out to)
+- Issuer (the entity or person issuing the check)
+- Bank or treasury reference
+- Any other important contextual information
+
+Use the spatial coordinates to help understand the document layout (e.g., top left may be issuer; center may be payee; bottom right might contain amount in digits or date).
+
+Respond with a structured summary of the check fields using this format:
+
+{
+  "payee": "Corrected payee name",
+  "amount_text": "Corrected amount in words",
+  "amount_numeric": "Corrected amount in digits",
+  "date": "Corrected date in DD/MM/YYYY format",
+  "issuer": "Corrected issuer name",
+  "bank": "Bank or treasury entity",
+  "additional_notes": "Any other relevant observations or metadata"
+}
+Below is the list of OCR entries (one per line):
+
+[y_min,x_min,y_max,x_max]   text
+
+106,38,170,810	payez contrece cheppe Dix . Willie Wirha was
+110,998,143,1242	will his files least
+196,786,238,876	che
+204,220,252,654	resorier Provincia .
+214,740,276,994	iscident #
+232,44,254,170	A l'ordre de
+248,612,284,704	ache
+268,904,305,1094	subactivity
+272,366,296,438	1953.
+286,88,304,174	payable a
+28,924,90,1152	10,000 #
+295,490,356,796	NOCOMPT #000994538
+318,98,342,250	chefchaouen
+346,524,382,870	ass O.S.F.O.R.MUNIC. CHEFCHAOUGH    
+350,100,372,228	Av Hassan II
+378,100,422,250	CHEF98657EN
+38,30,62,294	Bruce Bank of Africa
+424,752,456,1234	to signature me did not pos attennore to zone of-dessous this point #
+454,240,486,318	egg No .
+460,358,480,424	5956719 .
+460,50,486,182	Cheque Serie .
+46,834,112,924	# ff.
+498,452,560,1076	150040000020000039059A331
+51,1188,83,1249	pass .
+532,54,584,454	00 09 09 55 55 55 55.7 in. 53.91.0.3.1
+60,822,84,840	d ,
+66,32,90,296	LENNING WIN

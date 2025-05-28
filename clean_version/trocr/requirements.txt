@@ -1,0 +1,15 @@
+# Core dependencies
+torch
+torchvision
+
+# Transformers for TrOCR
+transformers
+
+# Image handling
+pillow
+
+# Optional: to work with image files easily
+numpy
+
+# Optional: for progress bars and CLI niceties
+tqdm
